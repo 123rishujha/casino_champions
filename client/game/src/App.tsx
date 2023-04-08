@@ -1,8 +1,7 @@
 import React from 'react';
 import AllRoutes from './routes/AllRoutes';
 import Navbar from './components/Navbar';
-import React from "react";
-import AllRoutes from "./routes/AllRoutes";
+
 
 import Chance from "./components/Chance";
 import { Gamepage } from "./pages/Gamepage";
@@ -16,7 +15,7 @@ function App() {
     <div className="text-3xl font-bold">
       <Navbar/>
       <AllRoutes />
-       <Gamepage/>
+      <Gamepage/>
       <Chance />
 
     </div>
