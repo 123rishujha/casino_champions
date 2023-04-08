@@ -1,8 +1,8 @@
 import React from 'react';
 import AllRoutes from './routes/AllRoutes';
 import Navbar from './components/Navbar';
-import React from "react";
-import AllRoutes from "./routes/AllRoutes";
+
+
 
 import Chance from "./components/Chance";
 import { Gamepage } from "./pages/Gamepage";
@@ -17,7 +17,7 @@ function App() {
       <Navbar/>
       <AllRoutes />
        <Gamepage/>
-      <Chance />
+      {/* <Chance /> */}
 
     </div>
   );

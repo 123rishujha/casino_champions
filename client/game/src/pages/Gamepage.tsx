@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { HiLightBulb, HiEmojiHappy } from "react-icons/hi";
 import handlebuttonval from "./logic";
 import { Test } from "./Test";
+import Chance from "../components/Chance";
  export  const Gamepage = () => {
   let [bulb, setBulbs] = useState<number[]>(new Array(9).fill(0));
   let [button, setButton] = useState<number[]>([]);
@@ -40,7 +41,7 @@ console.log(bulb,'bulb')
 console.log(button,"button")
   return (
     <div>
-      <div className="flex rounded-lg gap-2.5 mx-auto w-1/2 pl-2  border-indigo-600 shadow-lg shadow-cyan-500/50">
+      <div className="flex rounded-lg gap-2.5 mx-auto lg:w-1/2 sm:w-full pl-2  border-indigo-600 shadow-lg shadow-cyan-500/50">
         {bulb?.map((e, i) => {
           return (
             <svg
@@ -51,7 +52,7 @@ console.log(button,"button")
               strokeWidth={1.5}
               stroke="currentColor"
             
-              className={`fill-${e === 1 ?`yellow`:`blue`}-300 md:fill-${e === 1 ? `yellow`:`blue`}-300 w-10 h-10 m-2`}
+              className={`fill-${e === 1 ?`yellow`:`blue`}-300 md:fill-${e === 1 ? `yellow`:`blue`}-300 w-20 h-20 m-2`}
             >
               <path
                 strokeLinecap="round"
@@ -62,15 +63,19 @@ console.log(button,"button")
           );
         })}
       </div>
-      <div style={{ border: "1px solid black" }}>
+    
+      <div >
+   
         <button
           onClick={restartgame}
-          className="border-2 border-indigo-600 rounded-lg"
-        >
-          Restart Again
+          className="border-2 border-indigo-600 rounded-lg bg-cyan-600 pl-4 pr-4">
+            
+        Restart
         </button>
       </div>
-      <div className="flex rounded-lg gap-2.5 mx-auto w-2/3 pl-2  border-indigo-600 shadow-lg shadow-cyan-500/50">
+      <Chance/>
+  
+      <div className="flex rounded-lg lg:gap-0.7 sm:gap-0 mx-auto md:1/2 lg:w-3/4 xl:1/2 2xl:1/2  sm:w-full pl-2 p-5 border-indigo-600 shadow-lg shadow-cyan-500/50">
         {
           // bg-blue-500
           button?.map((e, i) => {
@@ -79,16 +84,16 @@ console.log(button,"button")
                 disabled={chance == 5}
                 key={i}
                 onClick={() => buttonval(e, i)}
-             className={`rounded-lg rounded-lg w-20 bg-${chance===5?"slate":e===0?"slate":"cyan"}-400 hover:bg-${chance === 5 ? "green-400" : "orange-400"} m-3 pl-3 pr-3 ${chance === 5 ? `cursor-not-allowed` : `cursor-pointer`}`}
+             className={`rounded-lg rounded-lg w-20 bg-${chance===5?"slate":e===0?"slate":"cyan"}-400 hover:bg-${chance === 5 ? "green-400" : "orange-400"} m-3 pl-5 pr-5 pt-1 pb-1 ${chance === 5 ? `cursor-not-allowed` : `cursor-pointer`}`}
                 // className={`rounded-lg rounded-lg w-20 bg-${chance === 5 ?"slate":e==0?"slate":"green"}-400 hover:bg-${chance === 5 ? "green-400" : "orange-400"} m-3 pl-3 pr-3 ${chance === 5 ? `cursor-not-allowed` : `cursor-pointer`}`}
               >
-                <HiEmojiHappy color={e === 0 ? "#3939ac":chance===5?"red": `white`} />
+                <HiEmojiHappy fontSize={"30px"} color={e === 0 ? "#3939ac":chance===5?"red": `white`} />
               </button>
             );
           })
         }
       </div>
-    <button>Clickme</button>
+  
     </div>
   );
 };
