@@ -48,9 +48,9 @@ const Chance = () => {
       </div>
       <button
         onClick={handleOpen}
-        className="bg-yellow-400 my-10  px-3  rounded"
+        className="bg-yellow-400 shadow-xl drop-shadow-2xl my-10 shadow-stone-900  w-16 h-8 p-2 rounded text-center"
       >
-        <GiOpenTreasureChest className="bg-yellow-400" />
+        <GiOpenTreasureChest className="bg-yellow-400  shadow-md shadow-black m-auto text-black text-2xl" />
       </button>
     </div>
   );

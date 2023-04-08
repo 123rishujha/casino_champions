@@ -18,6 +18,7 @@ export const chanceReducer = (
   action: any
 ) => {
   const { type } = action;
+
   switch (type) {
     case types.REQUEST_CHANCE: {
       return { ...state, isLoading: true };
