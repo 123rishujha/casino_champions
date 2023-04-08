@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { HiLightBulb, HiEmojiHappy } from "react-icons/hi";
 import handlebuttonval from "./logic";
-const Gamepage = () => {
+import { Test } from "./Test";
+ export  const Gamepage = () => {
   let [bulb, setBulbs] = useState<number[]>(new Array(9).fill(0));
   let [button, setButton] = useState<number[]>([]);
   let [refresh, setrefresh] = useState<number>(0);
@@ -9,6 +10,7 @@ const Gamepage = () => {
   let [emoji, setEmoji] = useState<number[]>(new Array(9).fill(0));
 
   function buttonval(val: number, index: number) {
+
     setChance((prev) => prev + 1);
     button[index] = 0;
     setButton(button);
@@ -26,7 +28,7 @@ const Gamepage = () => {
   useEffect(() => {
     setButton(handlebuttonval());
   }, []);
-  console.log("chance", chance);
+
 
   function restartgame() {
    setButton(handlebuttonval());
@@ -34,6 +36,8 @@ const Gamepage = () => {
     setChance(0);
     setrefresh(0);
   }
+console.log(bulb,'bulb')
+console.log(button,"button")
   return (
     <div>
       <div className="flex rounded-lg gap-2.5 mx-auto w-1/2 pl-2  border-indigo-600 shadow-lg shadow-cyan-500/50">
@@ -46,9 +50,8 @@ const Gamepage = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className={`fill-${e === 1 ? `yellow` : `blue`}-300 md:fill-${
-                e === 1 ? `yellow` : `blue`
-              }-300 w-10 h-10 m-2`}
+            
+              className={`fill-${e === 1 ?`yellow`:`blue`}-300 md:fill-${e === 1 ? `yellow`:`blue`}-300 w-10 h-10 m-2`}
             >
               <path
                 strokeLinecap="round"
@@ -76,22 +79,18 @@ const Gamepage = () => {
                 disabled={chance == 5}
                 key={i}
                 onClick={() => buttonval(e, i)}
-                className={`rounded-lg rounded-lg w-20 bg-${
-                  chance === 5 ? "slate":e==0?"slate" : "cyan"
-                }-400 hover:bg-${
-                  chance === 5 ? "green-400" : "orange-400"
-                } m-3 pl-3 pr-3 ${
-                  chance === 5 ? `cursor-not-allowed` : `cursor-pointer`
-                }`}
+             className={`rounded-lg rounded-lg w-20 bg-${chance===5?"slate":e===0?"slate":"cyan"}-400 hover:bg-${chance === 5 ? "green-400" : "orange-400"} m-3 pl-3 pr-3 ${chance === 5 ? `cursor-not-allowed` : `cursor-pointer`}`}
+                // className={`rounded-lg rounded-lg w-20 bg-${chance === 5 ?"slate":e==0?"slate":"green"}-400 hover:bg-${chance === 5 ? "green-400" : "orange-400"} m-3 pl-3 pr-3 ${chance === 5 ? `cursor-not-allowed` : `cursor-pointer`}`}
               >
-                <HiEmojiHappy color={e === 0 ? "#3939ac" :chance===5?"red": `white`} />
+                <HiEmojiHappy color={e === 0 ? "#3939ac":chance===5?"red": `white`} />
               </button>
             );
           })
         }
       </div>
+    <button>Clickme</button>
     </div>
   );
 };
 
-export default Gamepage;
+
