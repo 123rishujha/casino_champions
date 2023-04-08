@@ -4,10 +4,10 @@ import thunk from 'redux-thunk';
 
 
 
-import { dummyReducer } from './dummy/dummy.reducer';
+import { chanceReducer } from './chances/chances.reducer';
 
 const rootReducer = combineReducers({
-    dummyReducer,
+    chanceReducer,
 });
 
 
