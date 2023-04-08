@@ -1,0 +1,35 @@
+.boxContainer {
+  height: 200px;
+  width: 200px;
+  border: 1px solid red;
+  position: relative;
+}
+
+.box {
+  height: 130px;
+  width: 150px;
+  border: 1px solid green;
+  position: absolute;
+  top: 56px;
+  left: 20px;
+  background-color: #341e07;
+  border: 10px solid gray;
+  border-top: none;
+  border-top-right-radius: 10px;
+}
+
+.boxCap {
+  height: 50px;
+  width: 170px;
+  position: absolute;
+  left: 20px;
+  top: 5px;
+  background-color: #341e07;
+  border: 5px solid gray;
+  border-bottom: none;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transform-origin: bottom left;
+  /* transform: rotate(-110deg); */
+  transition: 0.8s;
+}

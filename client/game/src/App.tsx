@@ -1,13 +1,18 @@
 import React from 'react';
 import AllRoutes from './routes/AllRoutes';
 import Navbar from './components/Navbar';
-
+import React from "react";
+import AllRoutes from "./routes/AllRoutes";
+import Gamepage from "./pages/Gamepage";
+import Chance from "./components/Chance";
 
 function App() {
   return (
-    <div className="text-3xl font-bold underline">
+    <div className="text-3xl font-bold">
+      <Navbar/>
       <AllRoutes />
-     <Navbar/>
+      <Gamepage />
+      <Chance />
     </div>
   );
 }
