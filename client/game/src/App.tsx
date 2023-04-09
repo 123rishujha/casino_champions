@@ -13,10 +13,10 @@ import { Test } from "./pages/Test";
 function App() {
   return (
     <div className="text-3xl font-bold">
-      <Navbar/>
+      {/* <Navbar/> */}
       <AllRoutes />
-      <Gamepage/>
-      <Chance />
+      {/* <Gamepage/> */}
+      {/* <Chance /> */}
 
     </div>
   );
