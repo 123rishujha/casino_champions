@@ -7,6 +7,12 @@
   justify-content: flex-start;
   align-items: center;
   background-color: #f5deb3;
+  /* background-image: url("../../assets/treasure.jpg"); */
+  background-image: url("../../assets/background.jpg");
+  /* background-image: url("../../assets/cave.avif"); */
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  /* background-size: 100%; */
   background-image: url("../../assets/background.jpg");
   background-position: center;
   margin-bottom: 10px;
@@ -52,7 +58,9 @@
   border-top: none;
   border: 10px solid transparent;
   border-top: 0px solid;
+
   border-image: url("../../assets/wood-border.jpg") 30 round;
+
 }
 
 .boxCap {
@@ -71,7 +79,9 @@
   background-position: center;
   border: 10px solid transparent;
   border-bottom: none;
+
   border-image: url("../../assets/wood-border.jpg") 30 round;
+
   transition: 0.8s;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
