@@ -61,15 +61,15 @@ let noOfchances=useAppSelector((store)=>store?.chanceReducer?.chance )
     setexplosion(false)
   }
 
-console.log(noOfchances,"no")
+
 
   //sound effects
-  useEffect(() => {
-    audioInfinityRef?.current?.play();
-    if (audioInfinityRef.current) {
-      audioInfinityRef.current.volume = 0.5;
-    }
-  }, []);
+  // useEffect(() => {
+  //   audioInfinityRef?.current?.play();
+  //   if (audioInfinityRef.current) {
+  //     audioInfinityRef.current.volume = 0.5;
+  //   }
+  // }, []);
 
   // const handleToggleMute = () => {
   //   audioInfinityRef?.current?.play();
@@ -84,10 +84,10 @@ console.log(noOfchances,"no")
 
 
 
-  //sound effects
+  // sound effects
   useEffect(() => {
     audioInfinityRef?.current?.play();
-    if (audioInfinityRef.current) {
+    if (audioInfinityRef?.current) {
       audioInfinityRef.current.volume = 0.5;
     }
   }, []);
@@ -112,7 +112,7 @@ function redirecttoscore(){
     navigate("/score")
   },1500)
 }
-console.log(button)
+
   return (
     <div className="gamepageBg">
       <h1 style={{ textAlign: "center" }}>Win By Luck</h1>

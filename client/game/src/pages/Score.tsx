@@ -29,7 +29,7 @@ useEffect(()=>{
 function redirectTogame(){
 navigate("/game")
 }
-console.log(score)
+
   return (
     <div>
       <Heading textAlign={"center"}>Your Score</Heading>
@@ -55,7 +55,7 @@ console.log(score)
           {/* <Avatar name={`Sachin Kesarwani`} />{" "} */}
           <Badge bg={"green.600"} p={2} borderRadius={5}>
             <Heading as="h2" fontSize={"2xl"}>
-              Sachin Kesarwani
+             User
             </Heading>
           </Badge>
         </Heading>

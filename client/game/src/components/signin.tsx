@@ -26,6 +26,9 @@ const Signin: React.FC = () => {
     email: '',
     password: '',
   });
+
+let navigate=useNavigate()
+
   const [account, setAccount] = useState<MyObject|null>(null);
   console.log(account)
  if(account){ console.log(account.count)}
@@ -52,11 +55,12 @@ const Signin: React.FC = () => {
         alert('Invalid Details 👎!');
       } else {
         setAccount(res.data);
+        localStorage.setItem("gameUserInfo",JSON.stringify(res.data.fname))
         setLogdata({ email: '', password: '' });
         toast.success('Login Successfully done 😃!', {
           position: 'top-center',
         });
-        // navigate('/')
+       navigate("/game")
       }
     } catch (error:any) {
       console.error(error.message);
