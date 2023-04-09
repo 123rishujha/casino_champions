@@ -8,19 +8,32 @@ import "./Gamepage.css";
 import { useAppSelector } from "../redux/store";
 import { useAppDispatch } from "../redux/store";
 import { chanceUpdate } from "../redux/chances/chances.actions";
+
+import { Button } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import ConfettiExplosion from 'react-confetti-explosion';
+ export  const Gamepage = () => {
+
 //icons for sound
 import { BiVolumeMute } from "react-icons/bi";
 import { BsVolumeUp } from "react-icons/bs";
 
 export const Gamepage = () => {
+
   let [bulb, setBulbs] = useState<number[]>(new Array(9).fill(0));
   let [button, setButton] = useState<number[]>([]);
   let [refresh, setrefresh] = useState<number>(0);
   let [chance, setChance] = useState<number>(0);
   let [emoji, setEmoji] = useState<number[]>(new Array(9).fill(0));
+
+  let navigate=useNavigate()
+  let [explosion,setexplosion]=useState<boolean>(false)
+let noOfchances=useAppSelector((store)=>store.chanceReducer.chance )
+
   const audioInfinityRef = useRef<HTMLMediaElement>(null);
 
   let noOfchances = useAppSelector((store) => store.chanceReducer.chance);
+
   function buttonval(val: number, index: number) {
     setChance((prev) => prev + 1);
     button[index] = 0;
@@ -47,7 +60,20 @@ export const Gamepage = () => {
     setChance(0);
     setrefresh(0);
     dispatch(chanceUpdate(0));
+    setexplosion(false)
   }
+
+console.log(noOfchances,"no")
+
+function redirecttoscore(){
+  setexplosion(true)
+  setTimeout(()=>{
+    dispatch(chanceUpdate(0));
+navigate("/score")
+
+  },1500)
+}
+
   console.log(noOfchances, "no");
 
   //sound effects
@@ -66,12 +92,14 @@ export const Gamepage = () => {
     }
   };
 
+
   return (
     <div className="gamepageBg">
       <h1 style={{ textAlign: "center" }}>Win By Luck</h1>
       <div className="flex rounded-lg gap-2.5 mx-auto lg:w-1/2 sm:w-full pl-2 border-indigo-600 shadow-lg shadow-cyan-500/50">
         {bulb?.map((e, i) => {
           return (
+
             <HiLightBulb
               color={e == 0 ? "white" : `yellow`}
               fontSize={"90px"}
@@ -80,6 +108,7 @@ export const Gamepage = () => {
         })}
       </div>
       <div style={{ marginTop: "15px" }}>
+
         <button
           style={{
             color: "white",
@@ -93,8 +122,20 @@ export const Gamepage = () => {
         >
           Restart
         </button>
+
+        <button
+        disabled={chance==0||chance!=noOfchances}
+        style={{color:"white",width:"150px",margin:"auto",display:"block",textAlign:"center"}}
+  onClick={redirecttoscore}
+          className={`border-2 border-indigo-600 rounded-lg bg-green-600 pl-4 pr-4  ${chance === 0||noOfchances!==chance ? `cursor-not-allowed` : `cursor-pointer`}`}>
+            
+     Score{explosion&&  <ConfettiExplosion />}
+        </button>
+      
+
       </div>
       <Chance />
+
       <div
         style={{ display: "flex", flexWrap: "wrap" }}
         className="flex rounded-lg lg:gap-0.7 sm:gap-0 mx-auto md:1/2 lg:w-3/4 xl:1/2 2xl:1/2  sm:w-full pl-2 p-5 border-indigo-600 shadow-lg shadow-cyan-500/50"
@@ -142,6 +183,7 @@ export const Gamepage = () => {
           })
         }
       </div>
+
       {/* background sound */}
       <audio
         className="hidden"
@@ -155,6 +197,7 @@ export const Gamepage = () => {
           {audioInfinityRef?.current?.muted ? <BiVolumeMute /> : <BsVolumeUp />}
         </button>
       </div>
+
     </div>
   );
 };
