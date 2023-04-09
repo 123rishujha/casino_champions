@@ -1,6 +1,12 @@
 # casino_champions
 # casino_champions game is an game website where user need to guess the correct matching number randomly
 
+# How to start the app
+-> Fist clone the repo
+-> move to client then move to game:- cd client/game
+-> run npm install
+-> npm start
+
 # Members contributed
   1) 123rishujha
   2) SristyVerma
