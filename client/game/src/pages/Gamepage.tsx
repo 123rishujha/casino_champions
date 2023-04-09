@@ -3,6 +3,10 @@ import { HiLightBulb, HiEmojiHappy } from "react-icons/hi";
 import handlebuttonval from "./logic";
 import { Test } from "./Test";
 import Chance from "../components/Chance";
+import { useSelector } from "react-redux";
+import { useAppSelector } from "../redux/store";
+import { useAppDispatch } from "../redux/store";
+import { chanceUpdate } from "../redux/chances/chances.actions";
  export  const Gamepage = () => {
   let [bulb, setBulbs] = useState<number[]>(new Array(9).fill(0));
   let [button, setButton] = useState<number[]>([]);
@@ -10,6 +14,7 @@ import Chance from "../components/Chance";
   let [chance, setChance] = useState<number>(0);
   let [emoji, setEmoji] = useState<number[]>(new Array(9).fill(0));
 
+let noOfchances=useAppSelector((store)=>store.chanceReducer.chance )
   function buttonval(val: number, index: number) {
 
     setChance((prev) => prev + 1);
@@ -30,17 +35,18 @@ import Chance from "../components/Chance";
     setButton(handlebuttonval());
   }, []);
 
-
+let dispatch=useAppDispatch()
   function restartgame() {
    setButton(handlebuttonval());
     setBulbs(new Array(9).fill(0));
     setChance(0);
     setrefresh(0);
+    dispatch(chanceUpdate(0));
   }
-console.log(bulb,'bulb')
-console.log(button,"button")
+console.log(noOfchances,"no")
   return (
     <div>
+      <h1 style={{textAlign:"center"}}>Win By Luck</h1>
      <div className="flex rounded-lg gap-2.5 mx-auto lg:w-1/2 sm:w-full pl-2 border-indigo-600 shadow-lg shadow-cyan-500/50">
         {bulb?.map((e, i) => {
           return (
@@ -52,7 +58,7 @@ console.log(button,"button")
               strokeWidth={1.5}
               stroke="currentColor"
             
-              className={`fill-${e === 1 ?`yellow`:`blue`}-300 md:fill-${e === 1 ? `yellow`:`blue`}-300 w-20 h-20 m-2`}
+              className={`fill-${e === 1 ?`yellow`:`blue`}-300 md:fill-${e === 1 ? `yellow`:`blue`}-300 lg:w-20 lg:h-20 sm:w-40 sm:w-40 m-2`}
             >
               <path
                 strokeLinecap="round"
@@ -63,29 +69,34 @@ console.log(button,"button")
           );
         })}
       </div>
-      <div style={{ border: "1px solid black" }}>
+      <div style={{ marginTop:"15px" }}>
         <button
-        style={{color:"white"}}
+        style={{color:"white",width:"150px",margin:"auto",display:"block",textAlign:"center"}}
           onClick={restartgame}
-          className="border-2 border-indigo-600 rounded-lg bg-cyan-600 pl-4 pr-4">
+          className="border-2 border-indigo-600 rounded-lg bg-cyan-600 pl-4 pr-4 ">
             
         Restart
         </button>
-        <Chance/>
+      
 </div>
-      <div className="flex rounded-lg lg:gap-0.7 sm:gap-0 mx-auto md:1/2 lg:w-3/4 xl:1/2 2xl:1/2  sm:w-full pl-2 p-5 border-indigo-600 shadow-lg shadow-cyan-500/50">
+<Chance/>
+      <div
+      style={{display:"flex",flexWrap:"wrap"}}
+       className="flex rounded-lg lg:gap-0.7 sm:gap-0 mx-auto md:1/2 lg:w-3/4 xl:1/2 2xl:1/2  sm:w-full pl-2 p-5 border-indigo-600 shadow-lg shadow-cyan-500/50"
+       >
         {
           // bg-blue-500
           button?.map((e, i) => {
             return (
               <button
-                disabled={chance == 5}
+                disabled={chance == noOfchances||noOfchances==0}
                 key={i}
                 onClick={() => buttonval(e, i)}
-                className={`rounded-lg rounded-lg w-20 bg-${chance===5?"slate":e===0?"slate":"cyan"}-400 hover:bg-${chance === 5 ? "green-400" : "orange-400"} m-3 pl-5 pr-5 pt-1 pb-1 ${chance === 5 ? `cursor-not-allowed` : `cursor-pointer`}`}
+                style={{backgroundColor:`${chance==noOfchances?"white":e===0?"white":"#99ccff"}`,width:"70px" ,borderRadius:"10px",margin:"auto"}}
+                className={` ${chance === noOfchances||noOfchances==0 ? `cursor-not-allowed` : `cursor-pointer`}`}
                 // className={`rounded-lg rounded-lg w-20 bg-${chance === 5 ?"slate":e==0?"slate":"green"}-400 hover:bg-${chance === 5 ? "green-400" : "orange-400"} m-3 pl-3 pr-3 ${chance === 5 ? `cursor-not-allowed` : `cursor-pointer`}`}
               >
-         <HiEmojiHappy fontSize={"30px"} color={e === 0 ? "#3939ac":chance===5?"red": `white`} />
+         <HiEmojiHappy fontSize={"30px"} style={{margin:"auto"}} color={e === 0 ? "#3939ac":chance===noOfchances?"red": `white`} />
               </button>
             );
           })

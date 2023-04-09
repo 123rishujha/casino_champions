@@ -51,7 +51,7 @@
   top: 56px;
   left: 20px;
   z-index: 1;
-  background-image: url("../../assests/wood.jpg");
+  background-image: url("../../assets/wood.jpg");
   background-size: cover;
   background-position: center;
   background-color: #341e07;
@@ -74,7 +74,7 @@
   border: 5px solid gray;
   border-bottom: none;
   transform-origin: bottom left;
-  background-image: url("../../assests/wood.jpg");
+  background-image: url("../../assets/wood.jpg");
   background-size: cover;
   background-position: center;
   border: 10px solid transparent;
