@@ -46,6 +46,7 @@ let dispatch=useAppDispatch()
 console.log(noOfchances,"no")
   return (
     <div>
+      <h1 style={{textAlign:"center"}}>Win By Luck</h1>
      <div className="flex rounded-lg gap-2.5 mx-auto lg:w-1/2 sm:w-full pl-2 border-indigo-600 shadow-lg shadow-cyan-500/50">
         {bulb?.map((e, i) => {
           return (
@@ -57,7 +58,7 @@ console.log(noOfchances,"no")
               strokeWidth={1.5}
               stroke="currentColor"
             
-              className={`fill-${e === 1 ?`yellow`:`blue`}-300 md:fill-${e === 1 ? `yellow`:`blue`}-300 w-20 h-20 m-2`}
+              className={`fill-${e === 1 ?`yellow`:`blue`}-300 md:fill-${e === 1 ? `yellow`:`blue`}-300 lg:w-20 lg:h-20 sm:w-40 sm:w-40 m-2`}
             >
               <path
                 strokeLinecap="round"
@@ -68,16 +69,17 @@ console.log(noOfchances,"no")
           );
         })}
       </div>
-      <div style={{ border: "1px solid black" }}>
+      <div style={{ marginTop:"15px" }}>
         <button
-        style={{color:"white"}}
+        style={{color:"white",width:"150px",margin:"auto",display:"block",textAlign:"center"}}
           onClick={restartgame}
-          className="border-2 border-indigo-600 rounded-lg bg-cyan-600 pl-4 pr-4">
+          className="border-2 border-indigo-600 rounded-lg bg-cyan-600 pl-4 pr-4 ">
             
         Restart
         </button>
-        <Chance/>
+      
 </div>
+<Chance/>
       <div
       style={{display:"flex",flexWrap:"wrap"}}
        className="flex rounded-lg lg:gap-0.7 sm:gap-0 mx-auto md:1/2 lg:w-3/4 xl:1/2 2xl:1/2  sm:w-full pl-2 p-5 border-indigo-600 shadow-lg shadow-cyan-500/50"

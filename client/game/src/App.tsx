@@ -16,7 +16,7 @@ function App() {
     <div className="text-3xl font-bold">
       {/* <Navbar/> */}
       <AllRoutes />
-      <Home/>
+ 
       {/* <Gamepage/> */}
       {/* <Chance /> */}
 
