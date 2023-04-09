@@ -36,7 +36,7 @@ export const errorChance = (): I_ErroChance => {
 };
 
 export const updateChance = (payload: number): UPDATE_CHANCE_SUCCESS => {
-  console.log("action object function called", payload);
+ 
   return { type: types.UPDATE_CHANCE_SUCCESS, payload };
 };
 

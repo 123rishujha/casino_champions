@@ -26,8 +26,7 @@ const Chance = () => {
     }, 4000);
   };
 
-  console.log(chance);
-
+ 
  
 
   return (

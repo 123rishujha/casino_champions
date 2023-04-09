@@ -66,6 +66,9 @@ const Header = () => {
                 <Button onClick={onClose} variant={"ghost"} colorScheme='purple'>
     <Link to="/rules">Rules to Play</Link>
                 </Button>
+                <Button onClick={onClose} variant={"ghost"} colorScheme='purple'>
+    <Link to="/game">Play Now</Link>
+                </Button>
                 {/* <Button  onClick={onClose}variant={"ghost"} colorScheme='purple'>
     <Link to="/videos?category=free">Free Videos</Link>
                 </Button> */}
@@ -87,7 +90,7 @@ const Header = () => {
                     <Link to="/login">Login</Link>
                 </Button>
                 <Button  onClick={onClose} variant='outline'  colorScheme='purple' left={"-10"}>
-                    <Link to="/signup">Signup</Link>
+                    <Link to="/register">Signup</Link>
                 </Button>
             </HStack>
           </DrawerFooter>

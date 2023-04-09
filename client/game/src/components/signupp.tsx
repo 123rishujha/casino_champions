@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import './Signup.css';
 // import logo from '';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 interface UserData {
@@ -20,7 +20,7 @@ const Signup: React.FC = () => {
     password: '',
     cpassword: '',
   });
-
+let navigate=useNavigate()
   const adddata = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setUdata((prevState) => ({
@@ -64,6 +64,8 @@ const Signup: React.FC = () => {
           cpassword: '',
         });
         alert('Registration Successfully done 😃!');
+        navigate("/login")
+
       }
     } catch (error) {
       console.log('error in signup', error);

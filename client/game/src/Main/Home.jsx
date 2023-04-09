@@ -24,14 +24,14 @@ const Home = () => {
   return (
     <Box >
     <Carousel autoPlay infiniteLoop interval={1000}showArrows={false} showStatus={false} showThumbs={false}>
-        <Box w={"full"} h={"100ch"}>
+        {/* <Box w={"full"} h={"100ch"}>
             <Image src={img8} />
             <Heading bgColor={"blackAlpha.600"} color={"white"} {...headingOptions}>Race is Power</Heading>
-        </Box>
-        <Box w={"full"} h={"100ch"}>
+        </Box> */}
+        {/* <Box w={"full"} h={"100ch"}>
             <Image src={img9}/>
             <Heading bgColor={"blackAlpha.600"} color={"white"} {...headingOptions}>Future is gaming</Heading>
-        </Box>
+        </Box> */}
         <Box w={"full"} h={"100ch"}>
             <Image src={img3}/>
             <Heading bgColor={"blackAlpha.600"} color={"white"} {...headingOptions}>Watch the Future</Heading>
