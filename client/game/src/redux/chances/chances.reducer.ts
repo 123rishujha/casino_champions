@@ -5,12 +5,16 @@ export interface ChanceState {
   isLoading: boolean;
   isError: boolean;
   chance: number;
+  winchance:number;
+  bulb:number;
 }
 
 const initialState = {
   isLoading: false,
   isError: false,
   chance: 0,
+  winchance:0,
+   bulb:0
 };
 
 export const chanceReducer = (
@@ -27,7 +31,7 @@ export const chanceReducer = (
       return { ...state, isLoading: false, isError: true };
     }
     case types.UPDATE_CHANCE_SUCCESS: {
-      console.log("action", action.payload);
+    
       return {
         ...state,
         isLoading: false,
@@ -43,9 +47,19 @@ export const chanceReducer = (
         chance: 0,
       };
     }
+    case (types.win_chance):{
+      return{
+        ...state,winchance:action.payload
+      }
+    }
+    case (types.no_of_bulbs):{
+      return {
+        ...state,bulb:action.payload
+      }
+    }
     default: {
       console.log("called");
-      return state;
+      return state
     }
   }
 };

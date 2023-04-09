@@ -12,14 +12,12 @@ import { chanceUpdate } from "../redux/chances/chances.actions";
 import { Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import ConfettiExplosion from 'react-confetti-explosion';
- export  const Gamepage = () => {
 
-//icons for sound
 import { BiVolumeMute } from "react-icons/bi";
 import { BsVolumeUp } from "react-icons/bs";
+import { no_of_bulbs, win_chance } from "../redux/chances/chances.types";
 
 export const Gamepage = () => {
-
   let [bulb, setBulbs] = useState<number[]>(new Array(9).fill(0));
   let [button, setButton] = useState<number[]>([]);
   let [refresh, setrefresh] = useState<number>(0);
@@ -28,11 +26,11 @@ export const Gamepage = () => {
 
   let navigate=useNavigate()
   let [explosion,setexplosion]=useState<boolean>(false)
-let noOfchances=useAppSelector((store)=>store.chanceReducer.chance )
+let noOfchances=useAppSelector((store)=>store?.chanceReducer?.chance )
 
   const audioInfinityRef = useRef<HTMLMediaElement>(null);
 
-  let noOfchances = useAppSelector((store) => store.chanceReducer.chance);
+
 
   function buttonval(val: number, index: number) {
     setChance((prev) => prev + 1);
@@ -65,16 +63,26 @@ let noOfchances=useAppSelector((store)=>store.chanceReducer.chance )
 
 console.log(noOfchances,"no")
 
-function redirecttoscore(){
-  setexplosion(true)
-  setTimeout(()=>{
-    dispatch(chanceUpdate(0));
-navigate("/score")
+  //sound effects
+  useEffect(() => {
+    audioInfinityRef?.current?.play();
+    if (audioInfinityRef.current) {
+      audioInfinityRef.current.volume = 0.5;
+    }
+  }, []);
 
-  },1500)
-}
+  // const handleToggleMute = () => {
+  //   audioInfinityRef?.current?.play();
+  //   if (audioInfinityRef.current) {
+  //     audioInfinityRef.current.muted = !audioInfinityRef.current.muted;
+  //     console.log("called");
+  //   }
+  // };
 
-  console.log(noOfchances, "no");
+
+
+
+
 
   //sound effects
   useEffect(() => {
@@ -91,15 +99,26 @@ navigate("/score")
       console.log("called");
     }
   };
-
-
+function redirecttoscore(){
+  
+  let sum=bulb.filter((a)=>a==1).length
+  
+  console.log(sum)
+  dispatch({type:no_of_bulbs,payload:sum})
+  dispatch({type:win_chance,payload:noOfchances})
+  dispatch(chanceUpdate(0));
+  setexplosion(true)
+  setTimeout(()=>{
+    navigate("/score")
+  },1500)
+}
+console.log(button)
   return (
     <div className="gamepageBg">
       <h1 style={{ textAlign: "center" }}>Win By Luck</h1>
       <div className="flex rounded-lg gap-2.5 mx-auto lg:w-1/2 sm:w-full pl-2 border-indigo-600 shadow-lg shadow-cyan-500/50">
         {bulb?.map((e, i) => {
           return (
-
             <HiLightBulb
               color={e == 0 ? "white" : `yellow`}
               fontSize={"90px"}
@@ -107,8 +126,7 @@ navigate("/score")
           );
         })}
       </div>
-      <div style={{ marginTop: "15px" }}>
-
+      <div style={{ marginTop: "15px",display:"flex" }}>
         <button
           style={{
             color: "white",
@@ -183,7 +201,6 @@ navigate("/score")
           })
         }
       </div>
-
       {/* background sound */}
       <audio
         className="hidden"
@@ -197,7 +214,7 @@ navigate("/score")
           {audioInfinityRef?.current?.muted ? <BiVolumeMute /> : <BsVolumeUp />}
         </button>
       </div>
-
     </div>
+      
   );
 };
