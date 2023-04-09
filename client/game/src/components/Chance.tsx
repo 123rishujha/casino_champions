@@ -5,6 +5,7 @@ import { GiOpenTreasureChest } from "react-icons/gi";
 import { useAppDispatch, useAppSelector } from "../redux/store";
 import { chanceUpdate } from "../redux/chances/chances.actions";
 
+
 const Chance = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [random, setRandom] = useState<number>(5);
@@ -27,8 +28,11 @@ const Chance = () => {
 
   console.log(chance);
 
+ 
+
   return (
-    <div className="mainBoxContainer flex flex-col m-auto mt-10 border-2 border-green-400">
+    <div className="mainBoxContainer flex flex-col m-auto mt-10 ">
+      
       <div className="boxContainer m-auto">
         <div className={`boxCap ${open ? "-rotate-[110deg]" : ""} `}></div>
         <div className="box"></div>
@@ -50,10 +54,21 @@ const Chance = () => {
         </div>
       </div>
       <button
+        disabled={chance != 0}
         onClick={handleOpen}
-        className="bg-yellow-400 shadow-xl drop-shadow-2xl my-10 shadow-stone-900  w-16 h-8 p-2 rounded text-center"
+        className={`bg-yellow-400 shadow-xl ${
+          chance !== 0
+            ? "disabled:opacity-50 bg-yellow-200 cursor-not-allowed"
+            : ""
+        } drop-shadow-2xl my-10 shadow-stone-900  w-16 h-8 p-2 rounded text-center`}
       >
-        <GiOpenTreasureChest className="bg-yellow-400  shadow-md shadow-black m-auto text-black text-2xl" />
+        <GiOpenTreasureChest
+          className={`bg-yellow-400 ${
+            chance !== 0
+              ? "disabled:opacity-50 bg-yellow-200 cursor-not-allowed"
+              : ""
+          }  shadow-md shadow-black m-auto text-black text-2xl`}
+        />
       </button>
       {/*  */}
       <audio
@@ -62,6 +77,7 @@ const Chance = () => {
         controls
         src="./door-bell-open.mp3"
       />
+     
     </div>
   );
 };
