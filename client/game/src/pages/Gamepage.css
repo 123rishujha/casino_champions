@@ -1,0 +1,14 @@
+.gamepageBg {
+  background-image: url("../../assets/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.mutebutton {
+  float: left;
+  position: absolute;
+  left: 0px;
+  top: 25%;
+  color: white;
+}
