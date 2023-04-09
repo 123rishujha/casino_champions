@@ -36,6 +36,7 @@ export const errorChance = (): I_ErroChance => {
 };
 
 export const updateChance = (payload: number): UPDATE_CHANCE_SUCCESS => {
+  console.log("action object function called", payload);
   return { type: types.UPDATE_CHANCE_SUCCESS, payload };
 };
 
@@ -44,7 +45,9 @@ export const resetChance = (): I_ResetChance => {
 };
 
 // redux
-export const chanceUpdate = (payload: number): any => (dispatch: AppDispatch) => {
-  console.log("redux funciton chanceUpdate",payload);
+export const chanceUpdate =
+  (payload: number): any =>
+  (dispatch: AppDispatch) => {
+    console.log("redux funciton chanceUpdate", payload);
     dispatch(updateChance(payload));
   };

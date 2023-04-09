@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Chance from "./components/Chance";
 import { Gamepage } from "./pages/Gamepage";
 import { Test } from "./pages/Test";
+import Home from './Main/Home';
 
 
 
@@ -15,6 +16,7 @@ function App() {
     <div className="text-3xl font-bold">
       {/* <Navbar/> */}
       <AllRoutes />
+      <Home/>
       {/* <Gamepage/> */}
       {/* <Chance /> */}
 

@@ -1,26 +1,22 @@
 .mainBoxContainer {
   margin-top: 30px;
-  height: 400px;
-  width: 500px;
+  height: 300px;
+  width: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   background-color: #f5deb3;
-  /* background-image: url("../../assets/treasure.jpg"); */
   background-image: url("../../assets/background.jpg");
-  /* background-image: url("../../assets/cave.avif"); */
-  /* background-size: cover; */
-  /* background-repeat: no-repeat; */
-  /* background-size: 100%; */
   background-position: center;
+  margin-bottom: 10px;
 }
 
 .boxContainer {
   height: 200px;
   width: 200px;
-  margin-top: 130px;
-  top: 50px;
+  margin-top: 0px;
+  top: -60px;
   left: 24px;
   position: relative;
   animation-name: mainBox;
@@ -49,7 +45,7 @@
   top: 56px;
   left: 20px;
   z-index: 1;
-  background-image: url("../../assests/wood.jpg");
+  background-image: url("../../assets/wood.jpg");
   background-size: cover;
   background-position: center;
   background-color: #341e07;
@@ -70,7 +66,7 @@
   border: 5px solid gray;
   border-bottom: none;
   transform-origin: bottom left;
-  background-image: url("../../assests/wood.jpg");
+  background-image: url("../../assets/wood.jpg");
   background-size: cover;
   background-position: center;
   border: 10px solid transparent;
