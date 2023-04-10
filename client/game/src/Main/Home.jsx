@@ -32,21 +32,21 @@ const Home = () => {
             <Image src={img9}/>
             <Heading bgColor={"blackAlpha.600"} color={"white"} {...headingOptions}>Future is gaming</Heading>
         </Box> */}
-        <Box w={"full"} h={"100ch"}>
+        <Box w={"full"} h={"50ch"}>
             <Image src={img3}/>
             <Heading bgColor={"blackAlpha.600"} color={"white"} {...headingOptions}>Watch the Future</Heading>
         </Box>
-        <Box w={"full"} h={"100ch"}>
+        <Box w={"full"} h={"50ch"}>
             <Image src={img4}/>
             <Heading bgColor={"blackAlpha.600"} color={"white"} {...headingOptions}>Watch the Future</Heading>
         </Box>
-        <Box w={"full"} h={"100ch"}>
+        <Box w={"full"} h={"50ch"}>
             <Image src={img1}/>
             <Heading bgColor={"blackAlpha.600"} color={"white"} {...headingOptions}>Watch the Future</Heading>
         </Box>
     </Carousel>
 
-    <Container maxW={'container.xl'} minH={'100vh'} p="16">
+    <Container maxW={'container.xl'} minH={'50vh'} p="4">
         <Heading
           textTransform={'uppercase'}
           py="2"
@@ -69,7 +69,8 @@ const Home = () => {
             letterSpacing={'widest'}
             lineHeight={'190%'}
             p={['4', '16']}
-            textAlign={'justify'}
+            textAlign={'center'}
+            fontSize={"20"}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nemo
             tempora deleniti quod, est eos veniam autem asperiores rem, nam
@@ -92,8 +93,5 @@ const Home = () => {
   )
 }
 
-const MyCarousel = () => {
-    
-}
 
 export default Home
